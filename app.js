@@ -1,44 +1,47 @@
- // calling for the generate dice button id and event listener
-    let gDie = document.getElementById("generate-dice");
-    gDie.addEventListener("click", generateDie);
-    //   call for the id and event listener roll all dice
-    
+//  this is the empty dice array that needs each generated div pushed to
+var diceArray = [];
+
+//  Constructor variable that generates a new die   
 class Dice {
-    constructor(value){
+    constructor(value) {
         this.div = document.createElement("div");
         this.div.className = "myDiv";
-        this.span = document.createElement("span");
-        this.span.classList.add("spanned");
-        this.randRoll();
-        this.div.appendChild(this.span);
+        this.div.innerText = roll();
         document.body.appendChild(this.div);
+        diceArray.push(this.div);
     }
-     randRoll(){
-        this.span = document.createTextNode(roll());
+    randRoll() {
+
     }
 
 }
 
-
-    let button = document.createElement("button");
-    let rollTxt = document.createTextNode("Roll All");
-    button.appendChild(rollTxt);
-    document.body.appendChild(button);
-    button.style.margin = "10px 100px";
-    button.style.position = "absolute";
-
-    button.addEventListener("click", this.randRoll);
-
+// calling for the generate dice button id and event listener
+let gDie = document.getElementById("generate-dice");
+gDie.addEventListener("click", generateDie);
 // Rolls all the dice function
-function generateDie(){
+function generateDie() {
     let dice = new Dice;
 }
+// this rolls all the dice on the screen via the button
+let rollAll = document.getElementById("roll");
+rollAll.addEventListener("click", rollDice);
 
+// Rolls all the dice function
+function rollDice() {
+    for (i = 0; i < diceArray.length; i++) {
+        this.div.innerText = diceArray[i].roll();
+        diceArray[i].div.innerText = diceArray[i].value;
+    }
+}
 
 // Random Roll Function
 function roll() {
-    let diceArray = [1, 2, 3, 4, 5, 6];
-        for(i = 0; i < diceArray.length; i++){
-    return diceArray[Math.floor(Math.random() * diceArray.length)];
-        }
+    return [Math.floor(Math.random() * 6 + 1)];
+}
+
+// Sums all dice
+
+function sumDie() {
+
 }

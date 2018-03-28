@@ -9,6 +9,12 @@
     position: absolute;
 }
 
+#roll {
+    margin-top: 10px;
+    margin-left: 100px;
+    position: absolute;
+}
+
 .myDiv {
     background-color: black;
     color:  white;

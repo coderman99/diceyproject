@@ -3,15 +3,15 @@
     position: absolute;
 }
 
-#roll-all {
-    margin-top: 10px;
-    margin-left: 240px;
-    position: absolute;
-}
-
 #roll {
     margin-top: 10px;
     margin-left: 100px;
+    position: absolute;
+}
+
+#sumDice {
+    margin-top: 10px;
+    margin-left: 170px;
     position: absolute;
 }
 

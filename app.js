@@ -3,15 +3,22 @@ var diceArray = [];
 
 //  Constructor variable that generates a new die   
 class Dice {
-    constructor(value) {
+    constructor() {
+        this.value = this.randRoll();
         this.div = document.createElement("div");
         this.div.className = "myDiv";
-        this.div.innerText = roll();
+        this.div.innerText = this.value;
         document.body.appendChild(this.div);
-        diceArray.push(this.div);
+        this.div.addEventListener("click", function(){
+            this.value = this.randRoll();
+            this.div.innerText = this.value;
+        }.bind(this));
+        this.div.addEventListener("dblclick", function(){
+            this.div.remove();
+        }.bind(this));
     }
     randRoll() {
-
+        return [Math.floor(Math.random() * 6 + 1)];
     }
 
 }
@@ -22,26 +29,30 @@ gDie.addEventListener("click", generateDie);
 // Rolls all the dice function
 function generateDie() {
     let dice = new Dice;
+    diceArray.push(dice);
 }
 // this rolls all the dice on the screen via the button
 let rollAll = document.getElementById("roll");
-rollAll.addEventListener("click", rollDice);
-
-// Rolls all the dice function
-function rollDice() {
-    for (i = 0; i < diceArray.length; i++) {
-        this.div.innerText = diceArray[i].roll();
-        diceArray[i].div.innerText = diceArray[i].value;
+rollAll.addEventListener("click", function(){
+    for(i = 0; i < diceArray.length; i++){
+    diceArray[i].value = diceArray[i].randRoll();
+    diceArray[i].div.innerText = diceArray[i].value;
     }
-}
+});
 
-// Random Roll Function
-function roll() {
-    return [Math.floor(Math.random() * 6 + 1)];
-}
 
-// Sums all dice
+// // Sums all dice
 
-function sumDie() {
+let sumDie = document.getElementById("sumDice");
+sumDie.addEventListener("click", function(){
+    let total = 0;
+    for(i = 0; i < diceArray.length; i++){
+        total += diceArra[i].value;
+    }
+    alert(total);
+});
 
-}
+
+// function sumDie() {
+
+// }
